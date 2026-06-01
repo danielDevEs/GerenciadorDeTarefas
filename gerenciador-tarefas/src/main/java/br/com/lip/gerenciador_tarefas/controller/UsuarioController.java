@@ -1,5 +1,6 @@
 package br.com.lip.gerenciador_tarefas.controller;
 
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -20,4 +21,17 @@ public class UsuarioController {
         return usuario;
     }
     
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class UsuarioController {
+
+    @GetMapping("/usuario")
+    public String buscarUsuario() {
+        return "Maria Camila";
+    }
+
+>>>>>>> refs/remotes/origin/main
 }
