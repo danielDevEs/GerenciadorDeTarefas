@@ -9,8 +9,17 @@ import br.com.lip.gerenciador_tarefas.model.Usuario;
 public class UsuarioController {
 
     @GetMapping("/usuario")
-    public String buscarUsuario() {
-        return "Maria Camila";
+    public Usuario buscarUsuario() {
+
+        Usuario usuario = new Usuario();
+
+        usuario.setId(1L);
+        usuario.setNome("Daniel");
+        usuario.setSenha("12345");
+        usuario.setEmail("Daniel@Email");
+        // usuario.addTarefa(null);
+
+        return usuario;
     }
 
 }
