@@ -1,11 +1,11 @@
 package br.com.lip.gerenciador_tarefas.model;
 
 public class Tarefa {
-    private long id;
+    private Long id;
     private String titulo;
     private String descricao;
 
-    public long getId(){
+    public Long getId(){
         return this.id;
     }
 

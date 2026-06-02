@@ -1,22 +1,31 @@
 package br.com.lip.gerenciador_tarefas.controller;
 
+import br.com.lip.gerenciador_tarefas.service.TarefaService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lip.gerenciador_tarefas.model.Tarefa;
 
+import java.util.List;
 @RestController
 public class TarefaController {
 
+    private final TarefaService tarefaService;
+
+    TarefaController(TarefaService tarefaService) {
+        this.tarefaService = tarefaService;
+    }
+
     @GetMapping("/tarefas")
-    public Tarefa listarTarefas() {
+    public List<Tarefa> listarTarefas() {
 
-        Tarefa tarefa = new Tarefa();
+        return tarefaService.buscarTarefa();
+    }
 
-        tarefa.setId(1L);
-        tarefa.setTitulo("Estudar Spring Boot");
-        tarefa.setDescricao("Criar API de gerenciamento de tarefas");
 
-        return tarefa;
+    @GetMapping("/tarefas/{id}")
+    public Tarefa buscarPorId(@PathVariable Long id) {
+        return tarefaService.buscarPorId(id);
     }
 }
