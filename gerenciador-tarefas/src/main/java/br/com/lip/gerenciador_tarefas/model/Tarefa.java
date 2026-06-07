@@ -40,6 +40,10 @@ public class Tarefa {
     }
     
     public Prioridade getPrioridade() {
-    	
+    	return this.prioridade;
+    }
+    
+    public void setPrioridade(Prioridade value) {
+    	this.prioridade = value;
     }
 }
