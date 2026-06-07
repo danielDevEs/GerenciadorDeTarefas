@@ -4,6 +4,8 @@ public class Tarefa {
     private Long id;
     private String titulo;
     private String descricao;
+    private Status status;
+    private Prioridade prioridade;
 
     public Long getId(){
         return this.id;
@@ -27,5 +29,17 @@ public class Tarefa {
 
     public void setDescricao(String descricao){
         this.descricao = descricao;
+    }
+    
+    public Status getStatus() {
+    	return this.status;
+    }
+    
+    public void setStatus( Status value) {
+    	this.status = value;
+    }
+    
+    public Prioridade getPrioridade() {
+    	
     }
 }
