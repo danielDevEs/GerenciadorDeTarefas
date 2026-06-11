@@ -1,22 +1,32 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import './Cadastro.css'
 
 function Cadastro(){
+   const navigate = useNavigate();
+
    const [name, setName] = useState("");
    const [senha, setSenha] = useState("");
    const [confimarSenha, setConfimarSenha] = useState("");
 
    function handleLogin(event){
       event.preventDefault();
+      
+      if (!name.trim() || !senha.trim() || !confimarSenha.trim()){
+         alert("Preencha todos os campos!");
+         return;
+      }
 
       if (senha != confimarSenha){
          alert("senha diferentes");
          return
       }
 
+
       console.log(name)
       console.log(senha)
+
+      navigate("/dashboard");
 
       //posteriormente enviar para API
    }
@@ -50,7 +60,7 @@ function Cadastro(){
                   </div>
                      <p className="link">Já possui Login? <Link className="linkm" to="/">Logar</Link></p>
       
-                  <button type="submit"><Link className="link-but" to="/dashboard">Cadastrar</Link></button>
+                  <button type="submit">Cadastrar</button>
                </form>
             </div>
    )

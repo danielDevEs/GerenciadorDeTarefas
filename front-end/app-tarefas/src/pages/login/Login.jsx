@@ -1,23 +1,31 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate  } from "react-router-dom";
 import '../cadastro/Cadastro.css'
 
 function Login(){
+   const navigate = useNavigate();
+
    const [name, setName] = useState("");
    const [senha, setSenha] = useState("");
-
+   
    function handleLogin(event){
       event.preventDefault();
+      
+      if (!name.trim() || !senha.trim()) {
+         alert("Preencha todos os campos!");
+         return;
+      }
 
-      console.log(name)
-      console.log(senha)
-
-      //posteriormente enviar para API
+      console.log(name);
+      console.log(senha);
+      
+      navigate("/dashboard");
    }
+   //const formularioValido = name.trim() !== "" && senha.trim() !== "";
 
    return (
       <div className="container-login">
-         <form onSubmit={handleLogin}>
+         <form id="form" onSubmit={handleLogin}>
           <h1>Login</h1>
             <div className="entrada">
                <label>Name</label>
@@ -37,7 +45,7 @@ function Login(){
             </div>
              <p className="link">Não possui cadastro? <Link className="linkm" to="/cadastro">cadastrar</Link></p>
 
-            <button  type="submit"><Link className="link-but" to="/dashboard">Entrar</Link></button>
+            <button  type="submit">Entrar</button>
          </form>
       </div>
    );
